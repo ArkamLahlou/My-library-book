@@ -20,4 +20,3 @@ const bookSettings = [
         isRare: false
     }
 ];
-      
