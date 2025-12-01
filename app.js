@@ -9,10 +9,10 @@ bookSettings.forEach(book => {
     // نحدد المحتوى: العنوان والوصف
     let content = `<b>${book.title}</b> (${book.details})`;
     
-    // إذا كان الكتاب نادراً، نضيف رمزاً إضافياً (تقنية إعدادات إضافية)
+    // إذا كان الكتاب نادراً، نضيف رمزاً خاصاً ونضيف خاصية تنسيق لـ CSS
     if (book.isRare) {
         content = `✨ ${content}`;
-        listItem.style.fontWeight = 'bold';
+        listItem.style.fontWeight = 'bold'; 
     }
 
     // نضع المحتوى داخل العنصر
@@ -21,3 +21,4 @@ bookSettings.forEach(book => {
     // نضيف العنصر إلى القائمة في صفحة HTML
     listContainer.appendChild(listItem);
 });
+        
