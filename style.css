@@ -1,0 +1,84 @@
+/* ربط الخط من جوجل: "Cairo" لدعم اللغة العربية */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4; /* خلفية افتراضية */
+    text-align: right;
+    direction: rtl; /* لضمان دعم اللغة العربية بشكل صحيح */
+}
+
+/* **الخلفية الجذابة** - استخدام تدرج لوني هادئ وفاخر */
+body {
+    background: linear-gradient(135deg, #f0e6c6 0%, #d8bf8d 100%); /* ألوان ذهبية/بيج قديمة */
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #5d4037; /* لون بني داكن فاخر */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شفافة للمحتوى */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.intro, .book-list-placeholder {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-right: 5px solid #8d6e63; /* خط جانبي أنيق */
+}
+
+h2, h3 {
+    color: #4e342e; /* لون بني متوسط */
+}
+
+.image-display {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* **إطار الصورة الفاخر** */
+.image-frame {
+    display: inline-block;
+    padding: 10px;
+    background-color: #fff;
+    border: 5px solid #a1887f; /* إطار خارجي بلون الخشب */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* ظل يعطي عمق */
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-frame:hover {
+    transform: scale(1.05);
+}
+
+.image-frame img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #ddd; /* إطار داخلي بسيط */
+}
+
+.call-to-action {
+    font-weight: bold;
+    color: #b7905b; /* لون ذهبي للنداء */
+    padding-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    color: #777;
+    border-top: 1px solid #ccc;
+}
