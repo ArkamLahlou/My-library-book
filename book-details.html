@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">تفاصيل الكتاب - المكتبة</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* التنسيقات الخاصة بالصفحة */
+        .book-details-container {
+            display: flex;
+            gap: 40px;
+            padding: 30px 0;
+            flex-wrap: wrap;
+        }
+        .book-image-section {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        .book-info-section {
+            flex: 1; 
+            min-width: 300px;
+        }
+        .book-image-section img {
+            max-width: 100%;
+            height: auto;
+            border: 8px solid #a1887f;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .detail-item strong {
+            color: #4e342e;
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        /* تنسيق الأزرار */
+        .call-to-action-details {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .action-button {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            margin: 10px auto; 
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        #inquiryLink {
+            background-color: #b7905b; 
+            color: white;
+            box-shadow: 0 4px 6px rgba(183, 144, 91, 0.4);
+        }
+        #inquiryLink:hover {
+            background-color: #8d6e63;
+        }
+
+        #viewFileLink {
+            background-color: #6a8e7f;
+            color: white;
+        }
+        #viewFileLink:hover {
+            background-color: #4e6b5d;
+        }
+        
+        /* زر المعاينة المعطل */
+        #viewFileLink[style*="pointer-events: none"] {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="book-title-header">جاري تحميل تفاصيل الكتاب...</h1>
+        <p style="text-align: center; margin-top: 5px;">
+            <a href="index.html" style="color: #fff; text-decoration: none; font-weight: bold; padding: 5px 10px; border: 1px solid #fff; border-radius: 4px;">العودة لقائمة الكتب</a>
+        </p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="book-details-container">
+                <div class="book-image-section">
+                    <img id="bookImage" src="" alt="غلاف الكتاب">
+                </div>
+
+                <div class="book-info-section">
+                    <h2 id="bookTitle"></h2>
+                    
+                    <div class="detail-item">
+                        <strong>المؤلف:</strong> <span id="bookAuthor"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>سنة النشر:</strong> <span id="bookYear"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>الحالة:</strong> <span id="bookRarity"></span>
+                    </div>
+
+                    <h3>الوصف الكامل:</h3>
+                    <p id="bookDescription"></p>
+
+                    <div class="call-to-action-details">
+                        <a href="mailto:your_email@example.com?subject=استفسار عن الكتاب: [عنوان الكتاب]" id="inquiryLink" class="action-button">استفسر عن هذا الكنز الثمين</a>
+                        
+                        <a href="#" id="viewFileLink" class="action-button" 
+                           style="font-size: 1em;">
+                            جاري تحميل رابط الملف...
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 مكتبة الكنوز الثمينة. كل الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="js/settings.js"></script> 
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const bookId = getQueryParameter('id');
+        const book = bookSettings.find(b => b.id == bookId);
+
+        if (book) {
+            document.getElementById('pageTitle').innerText = `${book.title} - المكتبة`;
+            document.getElementById('book-title-header').innerText = book.title;
+            document.getElementById('bookTitle').innerText = book.title;
+
+            document.getElementById('bookAuthor').innerText = book.author;
+            document.getElementById('bookYear').innerText = book.year;
+            document.getElementById('bookRarity').innerText = book.isRare ? 'نادرة جداً ✨' : 'متوفرة';
+
+            document.getElementById('bookDescription').innerText = book.fullDescription;
+            document.getElementById('bookImage').src = book.coverImage;
+            document.getElementById('bookImage').alt = `غلاف كتاب ${book.title}`;
+
+            // تحديث رابط الاستفسار
+            document.getElementById('inquiryLink').href = `mailto:your_email@example.com?subject=استفسار عن الكتاب: ${book.title}`;
+
+            // تحديث رابط الملف الرقمي
+            const fileLinkElement = document.getElementById('viewFileLink');
+            fileLinkElement.href = book.fileURL;
+            
+            if (book.isRare) {
+                fileLinkElement.innerText = "غير متاح للمعاينة المباشرة (يرجى الاستفسار)";
+                fileLinkElement.style.backgroundColor = '#ccc';
+                fileLinkElement.style.pointerEvents = 'none';
+            } else {
+                fileLinkElement.innerText = "معاينة/تحميل الملف الرقمي";
+            }
+
+        } else {
+            document.getElementById('book-title-header').innerText = 'عذراً، لم يتم العثور على الكتاب المطلوب.';
+            document.querySelector('.book-details-container').innerHTML = '<p style="text-align: center; color: red;">الرقم التعريفي للكتاب غير صحيح أو مفقود.</p>';
+        }
+    </script>
+</body>
+  </html>
+  
