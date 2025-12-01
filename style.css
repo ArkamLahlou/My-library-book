@@ -1,84 +1,45 @@
-/* ربط الخط من جوجل: "Cairo" لدعم اللغة العربية */
-body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f4f4f4; /* خلفية افتراضية */
-    text-align: right;
-    direction: rtl; /* لضمان دعم اللغة العربية بشكل صحيح */
+/* تنسيق قائمة الكتب الأساسي */
+#book-list-container {
+    list-style: none; /* إزالة النقاط الافتراضية */
+    padding-right: 0;
+    margin-right: 0;
 }
 
-/* **الخلفية الجذابة** - استخدام تدرج لوني هادئ وفاخر */
-body {
-    background: linear-gradient(135deg, #f0e6c6 0%, #d8bf8d 100%); /* ألوان ذهبية/بيج قديمة */
-    background-attachment: fixed;
-}
-
-header {
-    background-color: #5d4037; /* لون بني داكن فاخر */
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-main {
-    padding: 20px;
-    max-width: 1000px;
-    margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شفافة للمحتوى */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.intro, .book-list-placeholder {
-    margin-bottom: 30px;
-    padding: 15px;
-    border-right: 5px solid #8d6e63; /* خط جانبي أنيق */
-}
-
-h2, h3 {
-    color: #4e342e; /* لون بني متوسط */
-}
-
-.image-display {
-    text-align: center;
-    margin: 40px 0;
-}
-
-/* **إطار الصورة الفاخر** */
-.image-frame {
-    display: inline-block;
-    padding: 10px;
-    background-color: #fff;
-    border: 5px solid #a1887f; /* إطار خارجي بلون الخشب */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* ظل يعطي عمق */
+#book-list-container li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
     border-radius: 5px;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: #f7f3e8; /* لون فاتح للخلفية */
+    border-right: 3px solid #8d6e63; /* خط جانبي بني بسيط */
 }
 
-.image-frame:hover {
-    transform: scale(1.05);
+/* تأثير عند المرور بالماوس على العنصر */
+#book-list-container li:hover {
+    background-color: #fffaf0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.image-frame img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid #ddd; /* إطار داخلي بسيط */
+/* تنسيق خاص بالعنوان داخل العنصر */
+#book-list-container li b {
+    color: #4e342e; /* لون بني داكن للعناوين */
+    font-size: 1.1em;
 }
 
-.call-to-action {
-    font-weight: bold;
-    color: #b7905b; /* لون ذهبي للنداء */
-    padding-top: 10px;
+/* **تنسيق الكتاب النادر (الذي يحتوي على رمز ✨)** */
+/* سنستخدم خاصية CSS لتحديد الكلمات التي تبدأ بالرمز ✨ */
+/* ملاحظة: هذا التنسيق سيعتمد جزئياً على الكود في app.js الذي يضيف الرمز */
+
+#book-list-container li {
+    /* كل الكتب */
+    color: #333;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-    color: #777;
-    border-top: 1px solid #ccc;
-}
+#book-list-container li[style*="font-weight: bold"] {
+    /* تنسيق خاص للكتب النادرة بناءً على الخاصية التي وضعها JavaScript */
+    background-color: #fff8e1; /* خلفية بلون ذهبي فاتح جداً */
+    border-right: 5px solid #b7905b; /* خط ذهبي سميك ومميز */
+    box-shadow: 0 4px 8px rgba(183, 144, 91, 0.2);
+    color: #4e342e;
+        }
+        
