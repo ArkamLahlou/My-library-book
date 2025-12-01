@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - لم يتم العثور على الصفحة</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* تنسيق بسيط لمركزة رسالة الخطأ */
+        .error-container {
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            border: 2px dashed #8d6e63;
+            border-radius: 10px;
+            background-color: #fff8e1;
+        }
+        .error-container h2 {
+            font-size: 2.5em;
+            color: #d32f2f; /* لون أحمر لتنبيه الخطأ */
+        }
+        .error-container p {
+            font-size: 1.2em;
+            color: #4e342e;
+        }
+        .error-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #b7905b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .error-container a:hover {
+            background-color: #8d6e63;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>💎 مكتبة الكنوز الثمينة 📚</h1>
+    </header>
+
+    <main>
+        <div class="error-container">
+            <h2>404</h2>
+            <h3>عذراً، هذا الكنز مفقود!</h3>
+            <p>
+                الصفحة التي تبحث عنها قد تم نقلها أو حذفها، أو ربما هناك خطأ في العنوان الذي أدخلته.
+            </p>
+            <p>
+                يرجى العودة إلى الصفحة الرئيسية للمكتبة.
+            </p>
+            <a href="index.html">العودة إلى المكتبة الرئيسية</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 مكتبة الكنوز الثمينة. كل الحقوق محفوظة.</p>
+    </footer>
+</body>
+</html>
